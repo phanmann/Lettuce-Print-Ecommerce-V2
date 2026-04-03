@@ -18,4 +18,4 @@ import './globals.css'
          <body>{children}</body>                                                
        </html>                                                                  
      )                                                                          
-   }
+   }              
