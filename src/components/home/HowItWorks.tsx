@@ -1,0 +1,4 @@
+export function HowItWorks() {
+  const steps = [['Choose your product','Shop a standard item or route into the quote flow for a more complex job.'],['Upload artwork or request help','Let customers keep moving even if they are not ready with final files yet.'],['Print and deliver','Use pickup, local NYC delivery, or rush support when the timeline is tight.']];
+  return <section className="section"><div className="container"><span className="kicker">How it works</span><h2 className="display" style={{fontSize:'clamp(40px,6vw,72px)',margin:'14px 0 24px'}}>Less waiting. More ordering.</h2><div className="steps">{steps.map(([title, copy], index) => <div key={title} className="card" style={{padding:24}}><span className="badge">0{index + 1}</span><h3 className="display" style={{fontSize:34,margin:'16px 0 10px'}}>{title}</h3><p className="eyebrow">{copy}</p></div>)}</div></div></section>;
+}

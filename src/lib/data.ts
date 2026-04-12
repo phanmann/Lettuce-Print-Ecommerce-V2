@@ -1,0 +1,26 @@
+import { BlogPost, Product } from '@/lib/types';
+export const products: Product[] = [
+  { id:'p1', slug:'matte-business-cards', name:'Matte Business Cards', category:'business-cards', shortDescription:'Premium first impressions with soft-touch matte stock.', description:'A fast-moving standard business card product with simple options and clear pricing. Ideal for startups, restaurants, agencies, and dispensaries.', startingPrice:49, turnaround:'3–5 business days', image:'https://images.unsplash.com/photo-1586075010923-2dd4570fb338?auto=format&fit=crop&w=1200&q=80', options:{ quantities:[500,1000,2500], sizes:['3.5 x 2 in'], finishes:['Matte','Gloss'] }, featured:true },
+  { id:'p2', slug:'promo-flyers', name:'Promo Flyers', category:'flyers', shortDescription:'Quick-turn flyers for promos, launches, and events.', description:'Designed for clear, affordable campaign printing. Perfect for menus, openings, local drops, and promo handouts.', startingPrice:79, turnaround:'3–5 business days', image:'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80', options:{ quantities:[250,500,1000], sizes:['4 x 6 in','5.5 x 8.5 in','8.5 x 11 in'], finishes:['Matte','Gloss'] }, featured:true },
+  { id:'p3', slug:'die-cut-stickers', name:'Die-Cut Stickers', category:'stickers', shortDescription:'Brand-forward stickers for retail, events, and packaging.', description:'Simple sticker ordering built for fast conversion. Great for merch, packaging inserts, and promotional drops.', startingPrice:65, turnaround:'4–6 business days', image:'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80', options:{ quantities:[100,250,500], sizes:['2 x 2 in','3 x 3 in','4 x 4 in'], finishes:['Matte','Gloss'] }, featured:true },
+  { id:'p4', slug:'roll-labels', name:'Roll Labels', category:'roll-labels', shortDescription:'Retail-ready roll labels for packaged products.', description:'Made for growing brands that need shelf presence quickly. A clean order path for standard label sizes.', startingPrice:89, turnaround:'5–7 business days', image:'https://images.unsplash.com/photo-1586880244406-556ebe35f282?auto=format&fit=crop&w=1200&q=80', options:{ quantities:[100,250,500], sizes:['2 x 2 in','3 x 2 in','4 x 3 in'], finishes:['Matte','Gloss'] }, featured:true },
+  { id:'p5', slug:'vinyl-banners', name:'Vinyl Banners', category:'banners', shortDescription:'Large-format impact for openings, events, and storefronts.', description:'A simplified ordering flow for standard banner sizes. For unusual installs and hardware needs, route into quote.', startingPrice:120, turnaround:'3–5 business days', image:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80', options:{ quantities:[1,2,5], sizes:['2 x 4 ft','3 x 6 ft','4 x 8 ft'], finishes:['Hems + Grommets','Pole Pockets'] }, featured:true }
+];
+export const categories = [
+  { slug:'business-cards', title:'Business Cards', subtitle:'Polished essentials from $49', color:'pink' },
+  { slug:'flyers', title:'Flyers', subtitle:'Campaign-ready handouts from $79', color:'yellow' },
+  { slug:'stickers', title:'Stickers', subtitle:'Merch and branding from $65', color:'blue' },
+  { slug:'roll-labels', title:'Roll Labels', subtitle:'Retail labels from $89', color:'green' },
+  { slug:'banners', title:'Banners', subtitle:'Storefront impact from $120', color:'cream' }
+] as const;
+export const testimonials = [
+  { quote:'Lettuce Print moves fast without making the work look rushed. It feels like having a designer and print buyer in one partner.', name:'Mia Torres', role:'Founder, retail concept' },
+  { quote:'We needed flyers, labels, and event signage in the same week. The process was clear, quick, and surprisingly premium.', name:'Chris Lam', role:'Marketing lead, hospitality group' },
+  { quote:'The site makes standard reorders easy, but we can still request a quote when the job gets complex.', name:'Alex Rivera', role:'Operations manager, NYC brand' }
+];
+export const blogPosts: BlogPost[] = [
+  { slug:'how-to-order-business-cards-fast', title:'How to order business cards fast without sacrificing quality', excerpt:'A practical guide for founders and operators who need polished cards quickly.', date:'April 10, 2026', body:['The biggest mistake most teams make is treating a simple card order like a custom print project.', 'For a brand like Lettuce Print, the goal is to reduce the order into a few choices: quantity, finish, and whether the customer needs artwork help.', 'If a customer has unusual specs, luxury stocks, or multiple versions, that is where the quote path takes over.'] },
+  { slug:'print-buying-guide-for-nyc-launches', title:'A print buying guide for NYC launches and openings', excerpt:'The core print kit a local brand should line up before launch week.', date:'April 5, 2026', body:['Launch weeks move fast. Brands often need flyers, storefront banners, stickers, and cards all at once.', 'This approach is especially valuable for small businesses, restaurants, and dispensaries that need a polished opening without waiting days for basic quotes.'] }
+];
+export const getProductBySlug = (slug:string) => products.find((p) => p.slug === slug);
+export const getBlogPost = (slug:string) => blogPosts.find((p) => p.slug === slug);

@@ -1,0 +1,3 @@
+import { notFound } from 'next/navigation';
+import { getBlogPost } from '@/lib/data';
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) { const { slug } = await params; const post = getBlogPost(slug); if (!post) notFound(); return <main className="section"><article className="container" style={{maxWidth:820}}><div className="muted">{post.date}</div><h1 className="display" style={{fontSize:'clamp(42px,8vw,82px)',margin:'8px 0 18px'}}>{post.title}</h1><div className="table-list">{post.body.map((paragraph) => <p key={paragraph} className="eyebrow">{paragraph}</p>)}</div></article></main>; }

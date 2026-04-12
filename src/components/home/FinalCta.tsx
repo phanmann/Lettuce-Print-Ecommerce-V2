@@ -1,0 +1,4 @@
+import Link from 'next/link';
+export function FinalCta() {
+  return <section className="section"><div className="container card" style={{padding:32,background:'var(--yellow)'}}><span className="kicker" style={{background:'rgba(255,255,255,.75)',color:'var(--text)'}}>Need something custom?</span><h2 className="display" style={{fontSize:'clamp(42px,7vw,82px)',margin:'16px 0 10px'}}>We built the quote flow to move as fast as the job does.</h2><p className="eyebrow" style={{maxWidth:760}}>Packaging, event kits, installations, and other non-standard jobs should still feel guided and premium, not overwhelming.</p><div style={{display:'flex',gap:12,marginTop:22,flexWrap:'wrap'}}><Link href="/quote" className="button button-primary">Get a custom quote</Link><a href="tel:+13476030557" className="button button-outline">Call the shop</a></div></div></section>;
+}

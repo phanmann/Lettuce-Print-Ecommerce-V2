@@ -1,0 +1,4 @@
+import Link from 'next/link';
+export function SplitPath() {
+  return <section className="section-tight"><div className="container split-cta"><div className="card" style={{padding:28}}><span className="kicker">Path 1</span><h3 className="display" style={{fontSize:40,margin:'14px 0'}}>Order standard prints</h3><p className="eyebrow">Use quick-order products with clear prices for cards, flyers, stickers, labels, and banners.</p><div style={{marginTop:18}}><Link href="/shop" className="button button-primary">Shop now</Link></div></div><div className="card" style={{padding:28}}><span className="kicker">Path 2</span><h3 className="display" style={{fontSize:40,margin:'14px 0'}}>Request a custom project</h3><p className="eyebrow">Use the quote flow for packaging, installs, multi-piece campaigns, or design-heavy projects.</p><div style={{marginTop:18}}><Link href="/quote" className="button button-outline">Start quote</Link></div></div></div></section>;
+}

@@ -1,0 +1,12 @@
+'use client';
+import { FormEvent, useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { useCart } from '@/components/cart/CartContext';
+import { formatCurrency } from '@/lib/pricing';
+export default function CheckoutPage() {
+  const { items, subtotal, clearCart } = useCart();
+  const router = useRouter();
+  const [submitting, setSubmitting] = useState(false);
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSubmitting(true); await fetch('/api/checkout', { method:'POST', headers:{ 'Content-Type':'application/json' }, body: JSON.stringify({ items, subtotal }) }); clearCart(); router.push('/thank-you'); }
+  return <main className="section"><div className="container" style={{display:'grid',gridTemplateColumns:'1.2fr .9fr',gap:24}}><section><h1 className="display" style={{fontSize:'clamp(42px,7vw,76px)',margin:'0 0 22px'}}>Checkout</h1><form className="card" style={{padding:24}} onSubmit={handleSubmit}><div className="form-grid"><label>Full name<input required name="name" /></label><label>Email<input required type="email" name="email" /></label><label>Phone<input name="phone" /></label><label>Fulfillment<select name="fulfillment"><option>Pickup</option><option>Local delivery</option></select></label><label style={{gridColumn:'1 / -1'}}>Address<input name="address" placeholder="Only needed for delivery" /></label><label style={{gridColumn:'1 / -1'}}>Order notes<textarea name="notes" placeholder="Rush details, access notes, artwork status, or anything else useful." /></label></div><div className="notice" style={{marginTop:18}}>This starter includes a working checkout scaffold and API route. Connect Stripe Checkout or Payment Element inside the checkout route when you are ready to accept live card payments.</div><div style={{marginTop:18}}><button className="button button-primary" disabled={submitting}>{submitting ? 'Submitting…' : 'Place order'}</button></div></form></section><aside><div className="card summary-box"><h2 className="display" style={{fontSize:38,margin:'0 0 8px'}}>Order summary</h2>{items.map((item) => <div key={item.id} className="meta-row" style={{marginBottom:10}}><span>{item.name} × {item.cartQuantity}</span><strong>{formatCurrency(item.unitPrice * item.cartQuantity)}</strong></div>)}<div className="hr" /><div className="meta-row"><span>Subtotal</span><strong>{formatCurrency(subtotal)}</strong></div></div></aside></div></main>;
+}
